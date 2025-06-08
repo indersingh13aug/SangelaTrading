@@ -2,27 +2,30 @@ import React from "react";
 
 const ProductGallery = ({ products }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 sm:p-6">
       {products.map((product) => {
         const mrp = parseFloat(product.mrp);
         const price = parseFloat(product.price);
         const discount = mrp && price ? Math.round(((mrp - price) * 100) / mrp) : 0;
 
         return (
-          <div key={product.item_id} className="border rounded p-4 shadow relative">
+          <div key={product.item_id} className="border rounded-lg p-4 shadow-sm relative bg-white">
+            {/* Product Image */}
             <img
               src={`/images/${product.image_path}/${product.image}`}
               alt={product.item_name}
               className="w-full h-48 object-contain mb-4"
             />
-            <h3 className="text-lg font-semibold">
+
+            {/* Product Title */}
+            <h3 className="text-base sm:text-lg font-semibold mb-1">
               {product.brand_name} - {product.capacity}
             </h3>
 
-            {/* MRP and Discount */}
-            <div className="flex items-center gap-2 mt-1">
-              <p className="text-sm text-gray-600 ">MRP:</p><span className="line-through text-sm text-gray-500">₹{mrp}</span>
-              <p className="text-sm text-red-600">Offer:</p><span className="text-red-600 font-bold text-lg">₹{price}</span>
+            {/* Pricing */}
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <span className="text-sm text-gray-500 line-through">₹{mrp}</span>
+              <span className="text-red-600 font-bold text-lg">₹{price}</span>
             </div>
 
             {/* Discount Star */}
