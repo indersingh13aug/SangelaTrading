@@ -1,0 +1,31 @@
+item_id,brand_name,item_name,type,capacity,price,available,image,image_path
+1,LG,LED TV,Television,55 inch,45000,TRUE,lg_tv_55.jpg,Television\LED_TV
+2,Samsung,Refrigerators,Home Appliances,265 liter,35000,TRUE,Samsung_fefrigerators_265.jpg,Home_Appliances
+3,Sony,OLED,Television,65 inch,95000,TRUE,sony_oled_65.jpg,Television\OLED
+4,Whirlpool,Washing Machine,Home Appliances,7 kg,28000,TRUE,whirlpool_wash_7kg.jpg,Home_Appliances
+5,Haier,AC,Cooling Appliance,1.5 Ton,32000,TRUE,haier_ac_1.5ton.jpg,Cooling_Appliance
+6,Bosch,Washing Machine,Home Appliances,6.5 kg,31000,TRUE,bosch_wash_6.5kg.jpg,Home_Appliances
+7,Panasonic,LED TV,Television,43 inch,33000,FALSE,panasonic_led_43.jpg,Television\LED_TV
+8,Goodrej,Refrigerators,Home Appliances,190 liter,24000,TRUE,goodrej_fridge_190.jpg,Home_Appliances
+9,Voltas,AC,Cooling Appliance,2 Ton,37000,FALSE,voltas_ac_2ton.jpg,Cooling_Appliance
+10,Sony,Speaker,Audio,30W,15000,TRUE,sony_speaker_30w.jpg,Audio\Speaker
+11,LG,Washing Machine,Home Appliances,6 kg,26000,TRUE,lg_wm_6kg.jpg,Home_Appliances
+12,Samsung,OLED,Television,65 inch,88000,TRUE,samsung_oled_65.jpg,Television\OLED
+13,Whirlpool,Refrigerator,Home Appliances,340 liter,37000,TRUE,whirlpool_fridge_340.jpg,Home_Appliances
+14,Bosch,AC,Cooling Appliance,1 Ton,29500,TRUE,bosch_ac_1ton.jpg,Cooling_Appliance
+15,Panasonic,Speaker,Audio,50W,10000,TRUE,panasonic_speaker_50w.jpg,Audio\Speaker
+16,Haier,Washing Machine,Home Appliances,8 kg,32000,FALSE,haier_wm_8kg.jpg,Home_Appliances
+17,Sony,LED TV,Television,50 inch,54000,TRUE,sony_led_50.jpg,Television\LED_TV
+18,Voltas,AC,Cooling Appliance,1.5 Ton,34000,TRUE,voltas_ac_1.5ton.jpg,Cooling_Appliance
+19,Goodrej,Refrigerator,Home Appliances,200 liter,26000,TRUE,goodrej_fridge_200.jpg,Home_Appliances
+20,LG,Speaker,Audio,20W,8000,TRUE,lg_speaker_20w.jpg,Audio\Speaker
+21,Samsung,LED TV,Television,32 inch,23000,TRUE,samsung_led_32.jpg,Television\LED_TV
+22,Whirlpool,AC,Cooling Appliance,2 Ton,36000,FALSE,whirlpool_ac_2ton.jpg,Cooling_Appliance
+23,Bosch,Washing Machine,Home Appliances,7.5 kg,33500,TRUE,bosch_wm_7.5kg.jpg,Home_Appliances
+24,Panasonic,Refrigerator,Home Appliances,310 liter,34500,TRUE,panasonic_fridge_310.jpg,Home_Appliances
+25,Sony,OLED,Television,77 inch,135000,TRUE,sony_oled_77.jpg,Television\OLED
+26,Haier,LED TV,Television,40 inch,28000,TRUE,haier_led_40.jpg,Television\LED_TV
+27,Goodrej,Speaker,Audio,25W,7000,TRUE,goodrej_speaker_25w.jpg,Audio\Speaker
+28,Voltas,Refrigerator,Home Appliances,275 liter,29500,TRUE,voltas_fridge_275.jpg,Home_Appliances
+29,LG,OLED,Television,55 inch,74000,TRUE,lg_oled_55.jpg,Television\OLED
+30,Samsung,Speaker,Audio,60W,12000,FALSE,samsung_speaker_60w.jpg,Audio\Speaker
