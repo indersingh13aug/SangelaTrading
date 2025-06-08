@@ -21,8 +21,8 @@ const ProductGallery = ({ products }) => {
 
             {/* MRP and Discount */}
             <div className="flex items-center gap-2 mt-1">
-              <span className="line-through text-sm text-gray-500">₹{mrp}</span>
-              <span className="text-red-600 font-bold text-lg">₹{price}</span>
+              <p className="text-sm text-gray-600 ">MRP:</p><span className="line-through text-sm text-gray-500">₹{mrp}</span>
+              <p className="text-sm text-red-600">Offer:</p><span className="text-red-600 font-bold text-lg">₹{price}</span>
             </div>
 
             {/* Discount Star */}
