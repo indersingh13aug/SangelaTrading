@@ -8,9 +8,9 @@ const ProductGallery = ({ products }) => {
             alt={product.item_name}
             className="w-full h-48 object-contain mb-4"
           />
-          <h3 className="text-lg font-semibold">{product.item_name}</h3>
+          <h3 className="text-lg font-semibold">{product.brand_name} - {product.capacity}</h3>
           <p className="text-red-600 font-bold">₹{product.price}</p>
-          <p className="text-sm text-gray-600">{product.brand_name} - {product.capacity}</p>
+          <p className="text-sm text-gray-600">{product.item_name}</p>
         </div>
       ))}
     </div>

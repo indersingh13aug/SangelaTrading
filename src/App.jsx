@@ -1,9 +1,9 @@
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Papa from "papaparse";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import React, { useEffect, useState } from "react";
 import ProductGallery from "./components/ProductGallery";
 import ContactPage from "./pages/ContactPage";
 
@@ -16,11 +16,14 @@ const subMenuToTypeMap = {
   "Speakers": "Audio"
 };
 
-function AppContent() {
+export default function App() {
   const [allProducts, setAllProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   useEffect(() => {
     fetch("/products.csv")
@@ -32,10 +35,14 @@ function AppContent() {
           complete: (results) => {
             setAllProducts(results.data);
             setFiltered(results.data);
-          },
+          }
         });
       });
   }, []);
+
+  useEffect(() => {
+    setCurrentPage(1); // reset to page 1 when data changes
+  }, [filtered]);
 
   const handleSubMenuClick = (subItem) => {
     const mappedType = subMenuToTypeMap[subItem];
@@ -44,7 +51,6 @@ function AppContent() {
     const filteredItems = allProducts.filter(item => {
       const matchesType = item.type === mappedType;
       const matchesKeyword = item.item_name.toLowerCase().includes(keyword);
-
       if (["Audio", "Cooling Appliance"].includes(mappedType)) {
         return matchesType;
       }
@@ -52,70 +58,87 @@ function AppContent() {
     });
 
     setFiltered(filteredItems);
-    navigate("/"); // Go to homepage to show filtered results
   };
 
   const handleSearch = (query) => {
     setSearchQuery(query);
-    const searchResults = allProducts.filter(item =>
+    const results = allProducts.filter(item =>
       item.item_name.toLowerCase().includes(query.toLowerCase()) ||
       item.brand_name.toLowerCase().includes(query.toLowerCase())
     );
-    setFiltered(searchResults);
+    setFiltered(results);
   };
 
-  return (
-    <div className="min-h-screen font-sans bg-white flex flex-col">
-      {/* Header */}
-      <div className="bg-red-600 px-4 py-3 flex flex-wrap items-center justify-between text-white">
-        <div className="text-xl font-bold tracking-wide">
-        
-        <span
-        onClick={() => {
-          setFiltered(allProducts); // Show all products
-          navigate("/"); // Navigate to home
-        }}
-        className="hover:text-blue-400 cursor-pointer"
-       >
-        SANGELA TRADING COMPANY
-      </span>
-        </div>
+  // Pagination logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filtered.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filtered.length / itemsPerPage);
 
-        <div className="flex-grow max-w-md mx-4 relative">
-          <input
-            type="text"
-            placeholder="Search Products"
-            value={searchQuery}
-            onChange={(e) => handleSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded text-black"
-          />
-          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-        </div>
-      </div>
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-      {/* Navigation */}
-      <NavBar onSubMenuClick={handleSubMenuClick} />
-
-
-
-      {/* Main Content */}
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<ProductGallery products={filtered} />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </main>
-
-      {/* Footer */}
-      <Footer />
-    </div>
-  );
-}
-
-export default function App() {
   return (
     <Router>
-      <AppContent />
+      <div className="min-h-screen font-sans bg-white flex flex-col">
+        <div className="bg-red-600 px-4 py-3 flex flex-wrap items-center justify-between text-white">
+          <div className="text-xl font-bold tracking-wide">
+            <Link to="/" onClick={() => setFiltered(allProducts)} className="hover:text-blue-400">
+              SANGELA TRADING COMPANY
+            </Link>
+          </div>
+          <div className="flex-grow max-w-md mx-4 relative">
+            <input
+              type="text"
+              placeholder="Search Products"
+              value={searchQuery}
+              onChange={(e) => handleSearch(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 rounded text-black"
+            />
+            <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+          </div>
+        </div>
+
+        <NavBar onSubMenuClick={handleSubMenuClick} />
+
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={
+              <>
+                <ProductGallery products={currentItems} />
+                {/* Pagination Controls */}
+                <div className="flex justify-center mt-4 gap-2">
+                  <button
+                    onClick={() => paginate(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="px-3 py-1 bg-gray-300 rounded disabled:opacity-50"
+                  >
+                    Prev
+                  </button>
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <button
+                      key={i + 1}
+                      onClick={() => paginate(i + 1)}
+                      className={`px-3 py-1 rounded ${currentPage === i + 1 ? "bg-blue-600 text-white" : "bg-gray-200"}`}
+                    >
+                      {i + 1}
+                    </button>
+                  ))}
+                  <button
+                    onClick={() => paginate(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className="px-3 py-1 bg-gray-300 rounded disabled:opacity-50"
+                  >
+                    Next
+                  </button>
+                </div>
+              </>
+            } />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
     </Router>
   );
 }
