@@ -41,7 +41,7 @@ const ProductGallery = ({ products }) => {
 
             {/* WhatsApp Link */}
             <a
-              href={`https://wa.me/919839487372?text=Hello,%20I%20am%20interested%20in%20${encodeURIComponent(
+              href={`https://wa.me/918958982616?text=Hello,%20I%20am%20interested%20in%20${encodeURIComponent(
                 product.brand_name + " " + product.item_name + " (" + product.capacity + ") - ₹" + price
               )}`}
               target="_blank"
