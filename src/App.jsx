@@ -20,10 +20,9 @@ function MainApp() {
   const [allProducts, setAllProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const navigate = useNavigate(); // ✅ required for redirect
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/products.csv")
@@ -33,15 +32,20 @@ function MainApp() {
           header: true,
           skipEmptyLines: true,
           complete: (results) => {
-            setAllProducts(results.data);
-            setFiltered(results.data);
+            const cleanedData = results.data.map(item => ({
+              ...item,
+              image_path: item.image_path?.trim() || "",
+              image: item.image?.trim() || ""
+            }));
+            setAllProducts(cleanedData);
+            setFiltered(cleanedData);
           }
         });
       });
   }, []);
 
   useEffect(() => {
-    setCurrentPage(1); // reset page on filter change
+    setCurrentPage(1);
   }, [filtered]);
 
   const handleSubMenuClick = (subItem) => {
@@ -58,7 +62,7 @@ function MainApp() {
     });
 
     setFiltered(filteredItems);
-    navigate("/"); // ✅ Go back to Home page
+    navigate("/");
   };
 
   const handleSearch = (query) => {
@@ -104,31 +108,33 @@ function MainApp() {
           <Route path="/" element={
             <>
               <ProductGallery products={currentItems} />
-              <div className="flex justify-center mt-4 gap-2">
-                <button
-                  onClick={() => paginate(currentPage - 1)}
-                  disabled={currentPage === 1}
-                  className="px-3 py-1 bg-gray-300 rounded disabled:opacity-50"
-                >
-                  Prev
-                </button>
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <button
-                    key={i + 1}
-                    onClick={() => paginate(i + 1)}
-                    className={`px-3 py-1 rounded ${currentPage === i + 1 ? "bg-blue-600 text-white" : "bg-gray-200"}`}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
-                <button
-                  onClick={() => paginate(currentPage + 1)}
-                  disabled={currentPage === totalPages}
-                  className="px-3 py-1 bg-gray-300 rounded disabled:opacity-50"
-                >
-                  Next
-                </button>
-              </div>
+              <div className="flex justify-center mt-4 gap-2 flex-wrap">
+  <button
+    onClick={() => paginate(currentPage - 1)}
+    disabled={currentPage === 1}
+    className="px-2 py-1 text-xl text-gray-700 disabled:opacity-30"
+  >
+    ‹
+  </button>
+  {Array.from({ length: totalPages }, (_, i) => (
+    <button
+      key={i + 1}
+      onClick={() => paginate(i + 1)}
+      className={`w-8 h-8 text-sm flex items-center justify-center rounded-full 
+        ${currentPage === i + 1 ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-200"}`}
+    >
+      {i + 1}
+    </button>
+  ))}
+  <button
+    onClick={() => paginate(currentPage + 1)}
+    disabled={currentPage === totalPages}
+    className="px-2 py-1 text-xl text-gray-700 disabled:opacity-30"
+  >
+    ›
+  </button>
+</div>
+
             </>
           } />
           <Route path="/contact" element={<ContactPage />} />

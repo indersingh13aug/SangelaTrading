@@ -1,6 +1,6 @@
 const ProductGallery = ({ products }) => {
   const generateWhatsAppLink = (product) => {
-    const message = `Hello, I am interested in the following product:
+  const message = `Hello, I am interested in the following product:
 
 Brand: ${product.brand_name}
 Capacity: ${product.capacity}
@@ -30,7 +30,7 @@ Price: ₹${product.price}`;
             href={generateWhatsAppLink(product)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-sm"
+            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
           >
             Contact to Dealer
           </a>
