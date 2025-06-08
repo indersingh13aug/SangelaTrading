@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Papa from "papaparse";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
