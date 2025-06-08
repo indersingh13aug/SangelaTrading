@@ -1,41 +1,55 @@
+import React from "react";
+
 const ProductGallery = ({ products }) => {
-  const generateWhatsAppLink = (product) => {
-  const message = `Hello, I am interested in the following product:
-
-Brand: ${product.brand_name}
-Capacity: ${product.capacity}
-Item: ${product.item_name}
-Price: ₹${product.price}`;
-
-    const encodedMessage = encodeURIComponent(message);
-    return `https://wa.me/918958982616?text=${encodedMessage}`;
-  };
-
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-      {products.map((product) => (
-        <div key={product.item_id} className="border rounded p-4 shadow">
-          <img
-            src={`/images/${product.image_path}/${product.image}`}
-            alt={product.item_name}
-            className="w-full h-48 object-contain mb-4"
-          />
-          <h3 className="text-lg font-semibold">
-            {product.brand_name} - {product.capacity}
-          </h3>
-          <p className="text-red-600 font-bold">₹{product.price}</p>
-          <p className="text-sm text-gray-600 mb-2">{product.item_name}</p>
+      {products.map((product) => {
+        const mrp = parseFloat(product.mrp);
+        const price = parseFloat(product.price);
+        const discount = mrp && price ? Math.round(((mrp - price) * 100) / mrp) : 0;
 
-          <a
-            href={generateWhatsAppLink(product)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            Contact to Dealer
-          </a>
-        </div>
-      ))}
+        return (
+          <div key={product.item_id} className="border rounded p-4 shadow relative">
+            <img
+              src={`/images/${product.image_path}/${product.image}`}
+              alt={product.item_name}
+              className="w-full h-48 object-contain mb-4"
+            />
+            <h3 className="text-lg font-semibold">
+              {product.brand_name} - {product.capacity}
+            </h3>
+
+            {/* MRP and Discount */}
+            <div className="flex items-center gap-2 mt-1">
+              <span className="line-through text-sm text-gray-500">₹{mrp}</span>
+              <span className="text-red-600 font-bold text-lg">₹{price}</span>
+            </div>
+
+            {/* Discount Star */}
+            {discount > 0 && (
+              // <div className="top-2 right-2 w-10 h-10 rounded-full border-2 border-red flex justify-center items-center bg-red-600 text-white font-bold text-sm flex">
+              <div className="absolute top-2 right-2 w-16 h-16 rounded-full border-2 border-red flex justify-center items-center bg-red-600 text-white font-bold flex text-sm flex animate-pulse shadow-md">
+                
+                {discount}% OFF
+              </div>
+            )}
+
+            <p className="text-sm text-gray-600 mt-2">{product.item_name}</p>
+
+            {/* WhatsApp Link */}
+            <a
+              href={`https://wa.me/919839487372?text=Hello,%20I%20am%20interested%20in%20${encodeURIComponent(
+                product.brand_name + " " + product.item_name + " (" + product.capacity + ") - ₹" + price
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 mt-2 inline-block hover:underline"
+            >
+              Contact to Dealer
+            </a>
+          </div>
+        );
+      })}
     </div>
   );
 };
