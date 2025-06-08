@@ -1,4 +1,16 @@
 const ProductGallery = ({ products }) => {
+  const generateWhatsAppLink = (product) => {
+    const message = `Hello, I am interested in the following product:
+
+Brand: ${product.brand_name}
+Capacity: ${product.capacity}
+Item: ${product.item_name}
+Price: ₹${product.price}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    return `https://wa.me/919839487372?text=${encodedMessage}`;
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
       {products.map((product) => (
@@ -8,9 +20,20 @@ const ProductGallery = ({ products }) => {
             alt={product.item_name}
             className="w-full h-48 object-contain mb-4"
           />
-          <h3 className="text-lg font-semibold">{product.brand_name} - {product.capacity}</h3>
+          <h3 className="text-lg font-semibold">
+            {product.brand_name} - {product.capacity}
+          </h3>
           <p className="text-red-600 font-bold">₹{product.price}</p>
-          <p className="text-sm text-gray-600">{product.item_name}</p>
+          <p className="text-sm text-gray-600 mb-2">{product.item_name}</p>
+
+          <a
+            href={generateWhatsAppLink(product)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-sm"
+          >
+            Contact to Dealer
+          </a>
         </div>
       ))}
     </div>
