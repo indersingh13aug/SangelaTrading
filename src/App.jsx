@@ -69,7 +69,16 @@ function AppContent() {
       {/* Header */}
       <div className="bg-red-600 px-4 py-3 flex flex-wrap items-center justify-between text-white">
         <div className="text-xl font-bold tracking-wide">
-          <Link to="/" className="hover:text-blue-400">SANGELA TRADING COMPANY</Link>
+        
+        <span
+        onClick={() => {
+          setFiltered(allProducts); // Show all products
+          navigate("/"); // Navigate to home
+        }}
+        className="hover:text-blue-400 cursor-pointer"
+       >
+        SANGELA TRADING COMPANY
+      </span>
         </div>
 
         <div className="flex-grow max-w-md mx-4 relative">
@@ -87,16 +96,7 @@ function AppContent() {
       {/* Navigation */}
       <NavBar onSubMenuClick={handleSubMenuClick} />
 
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-yellow-300 to-orange-400 p-10 text-center">
-        <h1 className="text-4xl font-extrabold text-white mb-2">
-          Summer <span className="text-red-700">BUMPER</span> OFFERS
-        </h1>
-        <p className="text-white text-lg">
-          Upgrade Your Home with Unbeatable Offers on <br />
-          Home Appliances & Electronics!
-        </p>
-      </section>
+
 
       {/* Main Content */}
       <main className="flex-grow">
