@@ -8,7 +8,7 @@ Item: ${product.item_name}
 Price: ₹${product.price}`;
 
     const encodedMessage = encodeURIComponent(message);
-    return `https://wa.me/919839487372?text=${encodedMessage}`;
+    return `https://wa.me/918958982616?text=${encodedMessage}`;
   };
 
   return (
