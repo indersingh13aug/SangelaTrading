@@ -2,17 +2,38 @@ import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-       <h1 className="text-3xl font-bold mb-4 text-red-700">About Sangela Trading Company</h1>
+    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="max-w-5xl mx-auto bg-white shadow-lg rounded-2xl p-8 md:p-12"
       >
+        {/* Owner Section */}
+        <div className="flex flex-col items-center md:flex-row md:items-start md:gap-8 mb-8">
+          <img
+            src="/images/owner.jpg"
+            alt="Mr. Surendra Singh Sangela"
+            className="w-40 h-40 rounded-full object-cover border-4 border-blue-200 shadow-md"
+          />
+          <div className="text-center md:text-left mt-4 md:mt-0">
+            <h2 className="text-2xl font-bold text-gray-800">
+              Mr. Surendra Singh Sangela
+            </h2>
+            <p className="text-sm text-gray-500">
+              Founder & Proprietor, Sangela Trading Company
+            </p>
+            
+          </div>
+        </div>
+
+        {/* About Content */}
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-6">
+          About Sangela Trading Company
+        </h1>
 
         <p className="text-lg text-gray-700 leading-relaxed mb-4">
-          <strong>Sangela Trading Company</strong> was founded in <strong>2005</strong> by <strong>Mr. Surendra Singh Sangela</strong>, and has proudly served the Haldwani region for over <strong>20 years</strong>. As a trusted name in electronics and electrical appliances, we offer a wide selection of products that combine quality, variety, and service excellence.
+          <strong>Sangela Trading Company</strong> was founded in <strong>2005</strong> by <strong>Mr. K. S. Sangela</strong>, and has proudly served the Haldwani region for over <strong>20 years</strong>. As a trusted name in electronics and electrical appliances, we offer a wide selection of products that combine quality, variety, and service excellence.
         </p>
 
         <p className="text-lg text-gray-700 leading-relaxed mb-4">
@@ -24,7 +45,7 @@ export default function AboutPage() {
         </p>
 
         <p className="text-lg text-gray-700 leading-relaxed mb-4">
-          We believe in building long-term relationships based on trust and satisfaction. For inquiries or support, reach out to us at <strong className="text-blue-600">+91-9839487372</strong>.
+          We believe in building long-term relationships based on trust and satisfaction. For inquiries or support, reach out to us at <strong className="text-blue-600">+91-8958982616</strong>.
         </p>
 
         <div className="mt-8 text-center">
