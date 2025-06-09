@@ -43,10 +43,10 @@ export default function ContactPage() {
           <div>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:contact@sangelatrading.com"
+              href="mailto:sangelatradingcompany@gmail.com"
               className="text-blue-600 hover:underline"
             >
-              contact@sangelatrading.com
+              sangelatradingcompany@gmail.com
             </a>
           </div>
 

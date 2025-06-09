@@ -24,10 +24,10 @@ export default function Footer() {
 +91-9839487372   
 </a><br></br>
 ✉️ <a
-  href="mailto:contact@sangelatrading@com"
+  href="mailto:sangelatradingcompany@gmail.com"
   className="text-blue-600 hover:text-blue-800"
 >
-contact@sangelatrading@com
+sangelatradingcompany@gmail.com
 </a>
 
 
