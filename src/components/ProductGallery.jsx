@@ -19,13 +19,19 @@ const ProductGallery = ({ products }) => {
 
             {/* Product Title */}
             <h3 className="text-base sm:text-lg font-semibold mb-1">
-              {product.brand_name} - {product.capacity}
+              {product.brand_name} - {product.capacity} {product.item_name}
             </h3>
+            
 
             {/* Pricing */}
             <div className="flex flex-wrap items-center gap-2 mb-2">
+              <span className="text-red-600 font-bold text-lg">Offer ₹{price}</span>
+              
+            </div>
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <span className="text-sm text-gray-500 ">MRP</span>
               <span className="text-sm text-gray-500 line-through">₹{mrp}</span>
-              <span className="text-red-600 font-bold text-lg">₹{price}</span>
+              
             </div>
 
             {/* Discount Star */}
@@ -37,7 +43,6 @@ const ProductGallery = ({ products }) => {
               </div>
             )}
 
-            <p className="text-sm text-gray-600 mt-2">{product.item_name}</p>
 
             {/* WhatsApp Link */}
             <a
@@ -46,9 +51,9 @@ const ProductGallery = ({ products }) => {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 mt-2 inline-block hover:underline"
+              className="text-blue-600 mt-2 inline-block hover:underline font-bold"
             >
-              Contact to Dealer
+              Contact Dealer
             </a>
           </div>
         );
