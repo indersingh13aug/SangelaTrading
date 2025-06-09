@@ -29,6 +29,6 @@ item_id,brand_name,item_name,type,capacity,price,available,image,image_path,mrp
 28,Voltas,Refrigerator,Home Appliances,275 liter,29500,TRUE,voltas_fridge_275.jpg,Home_Appliances,31000
 29,LG,OLED,Television,55 inch,74000,TRUE,lg_oled_55.jpg,Television\OLED,80000
 30,Samsung,Speaker,Audio,60W,12000,TRUE,samsung_speaker_60w.jpg,Audio\Speaker,13000
-31,CPPlus,CCTV,Security,8C,12000,TRUE,CPPlus_cctv_8c.jpg,CCTV,14600
-32,CPPlus,CCTV,Security,12C,16000,TRUE,CPPlus_cctv_12c.jpg,CCTV,18600
-33,CPPlus,CCTV,Security,16C,30000,TRUE,CPPlus_cctv_16c.jpg,CCTV,32900
+31,CP Plus,CCTV,Security,8C,12000,TRUE,CPPlus_cctv_8c.jpg,CCTV,14600
+32,CP Plus,CCTV,Security,12C,16000,TRUE,CPPlus_cctv_12c.jpg,CCTV,18600
+33,CP Plus,CCTV,Security,16C,30000,TRUE,CPPlus_cctv_16c.jpg,CCTV,32900
