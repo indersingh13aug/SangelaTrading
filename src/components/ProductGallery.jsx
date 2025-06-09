@@ -1,6 +1,8 @@
-import React from "react";
+import { useCart } from "../context/CartContext";
 
 const ProductGallery = ({ products }) => {
+  const { addToCart } = useCart();
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 sm:p-6">
       {products.map((product) => {
@@ -21,28 +23,22 @@ const ProductGallery = ({ products }) => {
             <h3 className="text-base sm:text-lg font-semibold mb-1">
               {product.brand_name} - {product.capacity} {product.item_name}
             </h3>
-            
 
             {/* Pricing */}
-            <div className="flex flex-wrap items-center gap-2 mb-2">
+            <div className="flex flex-wrap items-center gap-2 mb-1">
               <span className="text-red-600 font-bold text-lg">Offer ₹{price}</span>
-              
             </div>
             <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className="text-sm text-gray-500 ">MRP</span>
+              <span className="text-sm text-gray-500">MRP</span>
               <span className="text-sm text-gray-500 line-through">₹{mrp}</span>
-              
             </div>
 
-            {/* Discount Star */}
+            {/* Discount Bubble */}
             {discount > 0 && (
-              // <div className="top-2 right-2 w-10 h-10 rounded-full border-2 border-red flex justify-center items-center bg-red-600 text-white font-bold text-sm flex">
-              <div className="absolute top-2 right-2 w-16 h-16 rounded-full border-2 border-red flex justify-center items-center bg-red-600 text-white font-bold flex text-sm flex animate-pulse shadow-md">
-                
+              <div className="absolute top-2 right-2 w-16 h-16 rounded-full border-2 border-red flex justify-center items-center bg-red-600 text-white font-bold flex text-sm animate-pulse shadow-md">
                 {discount}% OFF
               </div>
             )}
-
 
             {/* WhatsApp Link */}
             <a
@@ -55,6 +51,14 @@ const ProductGallery = ({ products }) => {
             >
               Contact Dealer
             </a>
+
+            {/* Add to Cart Button */}
+            <button
+              onClick={() => addToCart(product)}
+              className="mt-3 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
+            >
+              Add to Cart
+            </button>
           </div>
         );
       })}

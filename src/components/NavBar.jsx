@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useCart } from "../context/CartContext";
+import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom"; // Ensure this is imported
 const navItems = {
   "Home Appliances": ["Refrigerators", "Washing Machines"],
@@ -12,7 +14,8 @@ const navItems = {
 export default function NavBar({ onSubMenuClick }) {
   const [openMenu, setOpenMenu] = useState(null);
   const menuRef = useRef();
-
+  const { cartItems } = useCart();
+  
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setOpenMenu(null); // Close submenu if clicked outside
@@ -76,7 +79,16 @@ export default function NavBar({ onSubMenuClick }) {
             Contact Us
           </Link>
         </li>
-        
+        <li>
+           <Link to="/cart" className="relative">
+        <FaShoppingCart size={24} />
+        {cartItems.length > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 rounded-full">
+            {cartItems.length}
+          </span>
+        )}
+      </Link>
+        </li>
       </ul>
 
     </nav>

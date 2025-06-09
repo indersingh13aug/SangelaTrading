@@ -8,7 +8,8 @@ import ProductGallery from "./components/ProductGallery";
 import ContactPage from "./pages/ContactPage";
 import ImageCarousel from "./components/ImageCarousel";
 import AboutPage from "./pages/AboutPage";
-
+import CartPage from "./pages/CartPage";
+import { CartProvider } from "./context/CartContext";
 
 const subMenuToTypeMap = {
   "Refrigerators": "Home Appliances",
@@ -18,7 +19,7 @@ const subMenuToTypeMap = {
   "OLED TVs": "Television",
   "Speakers": "Audio",
   "CCTV": "Security",
-  "RO":"Water Purifier",
+  "RO": "Water Purifier",
 };
 
 function MainApp() {
@@ -40,7 +41,10 @@ function MainApp() {
             const cleanedData = results.data.map(item => ({
               ...item,
               image_path: item.image_path?.trim() || "",
-              image: item.image?.trim() || ""
+              image: item.image?.trim() || "",
+              price: parseFloat(item.price),
+              item_id: parseInt(item.item_id),
+              quantity: 1,
             }));
             setAllProducts(cleanedData);
             setFiltered(cleanedData);
@@ -110,7 +114,6 @@ function MainApp() {
         <NavBar onSubMenuClick={handleSubMenuClick} />
       </div>
 
-
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={
@@ -147,8 +150,8 @@ function MainApp() {
           } />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
-
       </main>
 
       <Footer />
@@ -158,8 +161,10 @@ function MainApp() {
 
 export default function App() {
   return (
-    <Router>
-      <MainApp />
-    </Router>
+    <CartProvider>
+      <Router>
+        <MainApp />
+      </Router>
+    </CartProvider>
   );
 }
