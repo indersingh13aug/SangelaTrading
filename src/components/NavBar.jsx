@@ -6,6 +6,7 @@ const navItems = {
   "Television": ["LED TVs", "OLED TVs"],
   "Audio": ["Speakers"],
   "Security": ["CCTV"],
+  "Water Purifier":["RO"]
 };
 
 export default function NavBar({ onSubMenuClick }) {

@@ -32,3 +32,13 @@ item_id,brand_name,item_name,type,capacity,price,available,image,image_path,mrp
 31,CP Plus,CCTV,Security,8C,12000,TRUE,CPPlus_cctv_8c.jpg,CCTV,14600
 32,CP Plus,CCTV,Security,12C,16000,TRUE,CPPlus_cctv_12c.jpg,CCTV,18600
 33,CP Plus,CCTV,Security,16C,30000,TRUE,CPPlus_cctv_16c.jpg,CCTV,32900
+34,Kent,RO,Water Purifier,Grand Plus RO Purifier 8 Litre,14500,TRUE,kent_grand_plus.jpg,WaterPurifier,16000
+35,Hevells,RO,Water Purifier,UV Plus Purifier 7 Litre,12500,TRUE,hevells_uv_plus.jpg,WaterPurifier,13999
+36,Aquaguard,RO,Water Purifier,Aura RO+UV+MTDS  8 Litre,15999,TRUE,aquaguard_aura.jpg,WaterPurifier,18000
+37,Pureit,RO,Water Purifier,Copper+ Eco Mineral RO+UV 10 Litre,17000,TRUE,pureit_copper_plus.jpg,WaterPurifier,19000
+38,Kent,RO,Water Purifier,Maxx UV+UF 7 Litre,9500,TRUE,kent_maxx_uv.jpg,WaterPurifier,10500
+39,Hevells,RO,Water Purifier,Digiplus RO+UV+UF 8 Litre,16500,TRUE,hevells_digiplus.jpg,WaterPurifier,18000
+39,Aquaguard,RO,Water Purifier,Enhance RO+UV 7 Litre,14000,TRUE,aquaguard_enhance.jpg,WaterPurifier,15500
+40,Pureit,RO,Water Purifier,Ultima RO+UV 10 Litre,18500,TRUE,pureit_ultima.jpg,WaterPurifier,20000
+41,Kent,RO,Water Purifier,Copper RO+UV+UF 9 Litre,17500,TRUE,kent_copper_ro.jpg,WaterPurifier,19000
+42,Hevells,RO,Water Purifier,Active Plus UV Purifier 6 Litre,9900,TRUE,hevells_active_uv.jpg,WaterPurifier,11000

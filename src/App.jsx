@@ -17,7 +17,8 @@ const subMenuToTypeMap = {
   "LED TVs": "Television",
   "OLED TVs": "Television",
   "Speakers": "Audio",
-  "CCTV": "Security"
+  "CCTV": "Security",
+  "RO":"Water Purifier",
 };
 
 function MainApp() {
