@@ -33,7 +33,7 @@ export default function AboutPage() {
         </h1>
 
         <p className="text-lg text-gray-700 leading-relaxed mb-4">
-          <strong>Sangela Trading Company</strong> was founded in <strong>2005</strong> by <strong>Mr. K. S. Sangela</strong>, and has proudly served the Haldwani region for over <strong>20 years</strong>. As a trusted name in electronics and electrical appliances, we offer a wide selection of products that combine quality, variety, and service excellence.
+          <strong>Sangela Trading Company</strong> was founded in <strong>2005</strong> by <strong>Mr. Surendra Singh Sangela</strong>, and has proudly served the Haldwani region for over <strong>20 years</strong>. As a trusted name in electronics and electrical appliances, we offer a wide selection of products that combine quality, variety, and service excellence.
         </p>
 
         <p className="text-lg text-gray-700 leading-relaxed mb-4">
