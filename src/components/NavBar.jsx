@@ -29,7 +29,7 @@ export default function NavBar({ onSubMenuClick }) {
   };
 
   return (
-    <nav className="bg-gray-800 text-white px-6 py-3" ref={menuRef}>
+    <nav className="bg-gray-800 text-white px-6 py-3 sticky top-0 z-50 shadow-md" ref={menuRef}>
       <ul className="flex flex-wrap gap-6 relative">
         {Object.entries(navItems).map(([category, subItems]) => (
           <li key={category} className="relative">
