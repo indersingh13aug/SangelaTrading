@@ -1,3 +1,4 @@
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-10">
@@ -6,9 +7,30 @@ export default function Footer() {
         {/* Contact Info */}
         <div>
           <p className="space-y-2 text-gray-300 text-sm">
-            <b>Contact Us</b>
-          
-            📍 Near Naini Vidya Peeth School, Unchapul, Cheenpur, Haldwani, Uttarakhand 263139 📞 +91 89589 82616 ✉️ contact@sangelatrading@com
+            
+        <a
+  href="https://www.google.com/maps/place/Sangela+Trading+Company/@29.2263477,79.4987723,17z"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-blue-600 hover:text-blue-800"
+>
+  📍  Near Naini Vidya Peeth School, Unchapul, Cheenpur, Haldwani, Uttarakhand 263139 
+</a>
+            <br></br>
+📞<a
+  href="tel:+918958982616"
+  className="text-blue-600 hover:text-blue-800"
+>
++91-9839487372   
+</a><br></br>
+✉️ <a
+  href="mailto:contact@sangelatrading@com"
+  className="text-blue-600 hover:text-blue-800"
+>
+contact@sangelatrading@com
+</a>
+
+
           </p>
         </div>
 

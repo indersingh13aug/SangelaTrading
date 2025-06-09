@@ -11,9 +11,27 @@ export default function ContactPage() {
       </p>
 
       <ul className="text-gray-700 mb-6">
-        <li><strong>Address:</strong> Near Naini Vidya Peeth School, Unchapul, Cheenpur, Haldwani, Uttarakhand 263139</li>
-        <li><strong>Phone:</strong> +91 89589 82616</li>
-        <li><strong>Email:</strong> contact@sangelatrading.com</li>
+        <strong>Address:</strong> <a
+  href="https://www.google.com/maps/place/Sangela+Trading+Company/@29.2263477,79.4987723,17z"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-black-600 hover:text-blue-800"
+>
+Near Naini Vidya Peeth School, Unchapul, Cheenpur, Haldwani, Uttarakhand 263139 
+</a>
+
+        <li><strong>Phone:</strong><a
+  href="tel:+918958982616"
+  className="text-black-600 hover:text-blue-800"
+>
++91-89589 82616
+</a></li>
+        <li><strong>Email:</strong>  <a
+  href="mailto:contact@sangelatrading@com"
+  className="text-black-600 hover:text-blue-800"
+>
+contact@sangelatrading@com
+</a></li>
       </ul>
 
       <div className="w-full h-96 border-2 border-red-500">
