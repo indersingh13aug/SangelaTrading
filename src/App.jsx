@@ -16,7 +16,8 @@ const subMenuToTypeMap = {
   "Air Conditioners": "Cooling Appliance",
   "LED TVs": "Television",
   "OLED TVs": "Television",
-  "Speakers": "Audio"
+  "Speakers": "Audio",
+  "CCTV": "Security"
 };
 
 function MainApp() {

@@ -4,7 +4,8 @@ const navItems = {
   "Home Appliances": ["Refrigerators", "Washing Machines"],
   "Cooling Appliance": ["Air Conditioners"],
   "Television": ["LED TVs", "OLED TVs"],
-  "Audio": ["Speakers"]
+  "Audio": ["Speakers"],
+  "Security": ["CCTV"],
 };
 
 export default function NavBar({ onSubMenuClick }) {
