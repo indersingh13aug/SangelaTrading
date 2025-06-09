@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import ProductGallery from "./components/ProductGallery";
 import ContactPage from "./pages/ContactPage";
 import ImageCarousel from "./components/ImageCarousel";
+import AboutPage from "./pages/AboutPage";
+
 
 const subMenuToTypeMap = {
   "Refrigerators": "Home Appliances",
@@ -85,26 +87,26 @@ function MainApp() {
   return (
     <div className="min-h-screen font-sans bg-white flex flex-col">
       <div className="sticky top-0 z-50 bg-white shadow-md">
-  <div className="bg-red-600 px-4 py-1 flex flex-wrap items-center justify-between text-white">
-    <div className="text-xl font-bold tracking-wide">
-      <Link to="/" onClick={() => setFiltered(allProducts)} className="hover:text-blue-400">
-        SANGELA TRADING COMPANY
-      </Link>
-    </div>
-    <div className="flex-grow max-w-md mx-4 relative">
-      <input
-        type="text"
-        placeholder="Search Products"
-        value={searchQuery}
-        onChange={(e) => handleSearch(e.target.value)}
-        className="w-full pl-10 pr-4 py-2 rounded text-black"
-      />
-      <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-    </div>
-  </div>
+        <div className="bg-red-600 px-4 py-1 flex flex-wrap items-center justify-between text-white">
+          <div className="text-xl font-bold tracking-wide">
+            <Link to="/" onClick={() => setFiltered(allProducts)} className="hover:text-blue-400">
+              SANGELA TRADING COMPANY
+            </Link>
+          </div>
+          <div className="flex-grow max-w-md mx-4 relative">
+            <input
+              type="text"
+              placeholder="Search Products"
+              value={searchQuery}
+              onChange={(e) => handleSearch(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 rounded text-black"
+            />
+            <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+          </div>
+        </div>
 
-  <NavBar onSubMenuClick={handleSubMenuClick} />
-</div>
+        <NavBar onSubMenuClick={handleSubMenuClick} />
+      </div>
 
 
       <main className="flex-grow">
@@ -126,7 +128,7 @@ function MainApp() {
                     key={i + 1}
                     onClick={() => paginate(i + 1)}
                     className={`w-8 h-8 text-sm flex items-center justify-center rounded-full 
-        ${currentPage === i + 1 ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-200"}`}
+              ${currentPage === i + 1 ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-200"}`}
                   >
                     {i + 1}
                   </button>
@@ -139,11 +141,12 @@ function MainApp() {
                   ›
                 </button>
               </div>
-
             </>
           } />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
+
       </main>
 
       <Footer />

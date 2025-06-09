@@ -30,7 +30,9 @@ export default function NavBar({ onSubMenuClick }) {
 
   return (
     <nav className="bg-gray-800 text-white px-6 py-3 sticky top-0 z-50 shadow-md" ref={menuRef}>
+
       <ul className="flex flex-wrap gap-6 relative">
+
         {Object.entries(navItems).map(([category, subItems]) => (
           <li key={category} className="relative">
             <button
@@ -59,14 +61,22 @@ export default function NavBar({ onSubMenuClick }) {
           </li>
         ))}
         <li>
-<Link to="/contact"
-        className="font-semibold focus:outline-none"
-        >
-        Contact Us
-        </Link>
+          <Link to="/about"
+            className="font-semibold focus:outline-none"
+          >
+            About
+          </Link>
         </li>
-      </ul>
+        <li>
+          <Link to="/contact"
+            className="font-semibold focus:outline-none"
+          >
+            Contact Us
+          </Link>
+        </li>
         
+      </ul>
+
     </nav>
   );
 }
