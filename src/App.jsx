@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+// import React from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
+// import { FaSearch } from "react-icons/fa";
 import Papa from "papaparse";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -25,7 +26,8 @@ const subMenuToTypeMap = {
 function MainApp() {
   const [allProducts, setAllProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery] = useState("");
+  // const [setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const navigate = useNavigate();
@@ -74,14 +76,14 @@ function MainApp() {
     navigate("/");
   };
 
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-    const results = allProducts.filter(item =>
-      item.item_name.toLowerCase().includes(query.toLowerCase()) ||
-      item.brand_name.toLowerCase().includes(query.toLowerCase())
-    );
-    setFiltered(results);
-  };
+  // const handleSearch = (query) => {
+  //   setSearchQuery(query);
+  //   const results = allProducts.filter(item =>
+  //     item.item_name.toLowerCase().includes(query.toLowerCase()) ||
+  //     item.brand_name.toLowerCase().includes(query.toLowerCase())
+  //   );
+  //   setFiltered(results);
+  // };
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -96,19 +98,19 @@ function MainApp() {
         <div className="bg-red-600 px-4 py-1 flex flex-wrap items-center justify-between text-white">
           <div className="text-xl font-bold tracking-wide">
             <Link to="/" onClick={() => setFiltered(allProducts)} className="hover:text-blue-400">
-              SANGELA TRADING COMPANY
+              Sangela Trading Company
             </Link>
           </div>
-          <div className="flex-grow max-w-md mx-4 relative">
+          {/* <div className="flex-grow max-w-md mx-4 relative">
             <input
               type="text"
               placeholder="Search Products"
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded text-black"
+              className="w-10px pl-10 pr-4 py-1 rounded text-black"
             />
             <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-          </div>
+          </div> */}
         </div>
 
         <NavBar onSubMenuClick={handleSubMenuClick} />
