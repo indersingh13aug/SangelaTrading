@@ -96,7 +96,7 @@ function MainApp() {
     <div className="min-h-screen font-sans bg-white flex flex-col">
       <div className="sticky top-0 z-50 bg-white shadow-md">
         <div className="bg-red-600 px-4 py-1 flex flex-wrap items-center justify-between text-white">
-          <div className="text-xl font-bold tracking-wide">
+          <div className="text-xl font-bold tracking-wide" style={{"margin-left":"8px"}}>
             <Link to="/" onClick={() => setFiltered(allProducts)} className="hover:text-blue-400">
               Sangela Trading Company
             </Link>
