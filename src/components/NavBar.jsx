@@ -38,7 +38,9 @@ export default function NavBar({ onSubMenuClick }) {
     <nav className="bg-gray-800 text-white sticky top-0 z-50 shadow-md" ref={menuRef}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo / Title */}
-        <Link to="/" className="text-xl font-bold">eMart </Link>
+        <Link to="/" className="flex items-center">
+          <img src="/logo.jpg" alt="Logo" className="h-10 w-auto" />
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 items-center">
