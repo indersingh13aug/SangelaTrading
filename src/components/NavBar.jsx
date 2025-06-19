@@ -39,7 +39,7 @@ export default function NavBar({ onSubMenuClick }) {
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo / Title */}
         <Link to="/" className="flex items-center">
-          <img src="/logo.jpg" alt="Logo" className="h-10 w-auto" />
+          <img src="/images/logo.png" alt="Logo" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Menu */}
